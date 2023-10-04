@@ -1,0 +1,84 @@
+{% extends 'admin_idex.html' %}
+{% block sidebar %}
+
+{% endblock %}
+{% block content %}
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">    
+        <div class="col-md-8">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Edit Details</h3>
+            </div>
+
+            {% for i in edata %}
+            <form action="{% url 'update' i.id %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Hotel Name</label>
+                  <input type="text" class="form-control" id="name" name="name"  value="{{i.hname}}" >
+                </div>
+
+                <div class="form-group">
+                  <label>Address</label>
+                  <input type="text" class="form-control" id="address" name="address" value="{{i.haddress}}" >
+                </div>
+
+                <div class="form-group">
+                    <label>State</label>
+                    <input type="text" class="form-control" id="state" name="state" value="{{i.hstate}}" >
+                  </div>
+
+                  <div class="form-group">
+                    <label>City</label>
+                    <input type="text" class="form-control" id="city" name="city" value="{{i.hcity}}">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Pincode</label>
+                    <input type="text" class="form-control" id="pin" name="pin" value="{{i.hpin}}" >
+                  </div>
+
+                  <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" class="form-control" id="price" name="price" value="{{i.hprice}}" >
+                  </div>
+
+                  <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" class="form-control" id="description" name="description" value="{{i.hdescription}}" >
+                  </div>
+
+                <div class="form-group">
+                  <label>ID Proof</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="image" name="image">
+                      <label class="custom-file-label" for="image">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <span class="input-group-text">Upload</span>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+             
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+            {% endfor %}
+          </div>
+         
+
+        </div>
+       
+      </div>
+     
+    </div>
+  </section>
+  {% endblock %}

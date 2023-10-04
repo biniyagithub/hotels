@@ -1,0 +1,41 @@
+{% extends 'admin_idex.html' %}
+{% block sidebar %}
+
+{% endblock %}
+{% block content %}
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Hotel Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+               {% for i in hoteldata %}
+                <div class="col-md-6"></div>
+                      <h4>{{i.hname}}</h4>
+                      <h4>{{i.haddress}}</h4>
+                      <h4> {{i.hprice}}</h4>  
+                      <h4>{{i.hemail}}</h4>
+                      <h4> {{i.hdescription}}</h4>
+                      <img src="{{i.himage.url}}" style="height:50px;width:50px;">
+                 </div>
+                {% endfor %}
+          
+          <!-- /.card -->
+
+        
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+{% endblock %}

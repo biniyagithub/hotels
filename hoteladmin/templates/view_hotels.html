@@ -1,0 +1,101 @@
+{% extends 'admin_idex.html' %}
+{% block sidebar %}
+
+{% endblock %}
+{% block content %}
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Hotel Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Hotel Name</th>
+                    <th>Address</th>
+                    <th>State</th>                                       
+                    <th>City</th>
+                    <th>Pincode</th>
+                    <th>Price</th>
+                    <th>Email ID</th>
+                    <th>Password</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Delete</th>
+                    <th>View More</th>
+                  </tr>
+                </thead>
+                {% for i in hdata %}
+                <tbody>
+                  <tr id = "row1">
+                     <td>
+                      {{i.id}}
+                     </td>
+                      <td>
+                          {{i.hname}}
+                      </td>
+                      <td>
+                          {{i.haddress}}
+                      </td>
+                      <td>
+                          {{i.hstate}}
+                      </td>    
+                      <td>
+                          {{i.hcity}}
+                      </td>
+                      <td>
+                          {{i.hpin}}
+                      </td>
+                      <th>
+                          {{i.hprice}}
+                      </th>
+                      <th>
+                        {{i.hemail}}
+                      </th>
+                      <th>
+                        {{i.hpassword}}
+                      </th>
+                      <th>
+                        {{i.hdescription}}
+                      </th>
+                      <td>
+                         <img src="{{i.himage.url}}" style="height:50px;width:50px;">
+                      </td>
+                      <td>
+                          <a href="{% url 'edit' id=i.id %}"><button> Edit </button>
+                          </a>
+                      </td>
+                       <td>   
+                          <a href="{% url 'delete' id=i.id %}"><button> Delete </button>
+                          </a>  
+                      </td>
+                      <td>
+                        <a href="{% url 'viewdetails' i.id %}"> <button> View </button>
+                        </a>
+                      </td>
+                  </tr>
+                </tbody>
+                {% endfor %}
+              </table>
+          
+          <!-- /.card -->
+
+        
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+{% endblock %}

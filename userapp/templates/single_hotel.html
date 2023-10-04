@@ -1,0 +1,17 @@
+{% extends 'user_home.html' %}
+{% block body %}
+{% for i in sdata %}
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{i.himage.url}}" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title">{{i.hname}}</h3>
+      <h5 class="card-text">{{i.haddress}}</h5>
+      <h5 class="card-text">{{i.hprice}}</h5>
+      <h5 class="card-text">{{i.hdescription}}</h5>
+      <h5 class="card-text">{{i.hcity}}</h5>
+      <h5 class="card-text">{{i.hemail}}</h5>
+      <a href="{% url 'hbooking' %}" class="btn btn-primary">Book Now</a>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}
